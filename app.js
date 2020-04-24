@@ -23,7 +23,7 @@ app.use(
   cors({
     allowedHeaders: ["authorization", "Content-Type"], // you can change the headers
     exposedHeaders: ["authorization"], // you can change the headers
-    origin: ['http://localhost:3000'],
+    origin: ['https://choosecat.herokuapp.com','http://localhost:3000'],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     preflightContinue: false,
     credentials: true

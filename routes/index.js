@@ -12,11 +12,9 @@ router.get('/', function(req, res, next) {
 
 /* GET Cats. */
 router.get('/cats', function(req, res, next) {
-  //res.send('Hello World!');
 
   catModel.find(function(error, data) {
 
-    console.log('coucou les gens !');
     res.json({result: true, data});
   });
 
@@ -27,7 +25,6 @@ router.get('/cats', function(req, res, next) {
 // route qui permet de mettre a jour les infos d'un chat
 router.put('/cats/:cat_id/updateCat', function (req, res, next) {
 
-  console.log('REQ du body (step 1) ', req.body);
 
   catModel.findById(req.body.id, (error, cats) => {
     if (error) {

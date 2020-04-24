@@ -38,17 +38,9 @@ router.put('/cats/:cat_id/updateCat', function (req, res, next) {
       cats.score = req.body.score;
 
       cats.save((err, cats) => {
-          console.log('ERR DE SAVE DE CAT : ',err)
-          console.log('DATAAA (step 4)', cats);
-
           catModel.find(function(error, data) {
-
-            console.log('coucou les gens !');
             res.json({result: true, data});
           });
-
-
-          //res.json({ result: true, cats });
       });
     }
   });

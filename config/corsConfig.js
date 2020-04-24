@@ -4,7 +4,7 @@ var app = express();
 
 var whitelist = [
     `http://localhost:3000`,
-    `https://choosecat.herokuapp.com/`,
+    `https://choosecat.herokuapp.com`,
 ]
 
 var corsOptions = {

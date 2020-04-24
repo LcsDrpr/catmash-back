@@ -1,16 +1,34 @@
 require('./models/bdconnect');
 
-
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+cors = require("cors");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+// CORE OPTIONS <-- COMPULSORY
+const corsOptions = {
+  origin: "*",
+  credentials: true
+};
+
+// app.use(cors(corsOptions));
+app.use(
+  cors({
+    allowedHeaders: ["authorization", "Content-Type"], // you can change the headers
+    exposedHeaders: ["authorization"], // you can change the headers
+    origin: ['http://localhost:3000'],
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+    credentials: true
+  })
+);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
